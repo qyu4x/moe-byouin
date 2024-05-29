@@ -20,9 +20,15 @@ class Dokter extends Model
 
     protected $fillable = [
         'id_poli',
+        'email',
+        'password',
         'nama',
         'no_hp',
         'alamat'
+    ];
+
+    protected $hidden = [
+        'password'
     ];
 
     public function polis(): BelongsTo
@@ -34,6 +40,8 @@ class Dokter extends Model
     {
         return $this->hasMany(JadwalPeriksa::class, 'id_dokter', 'id');
     }
+
+
 
 
 }
