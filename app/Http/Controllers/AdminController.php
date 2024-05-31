@@ -47,4 +47,10 @@ class AdminController extends Controller
         session()->put('token', $token);
         return redirect('/admin');
     }
+
+    function doLogout(Request $request): Response | RedirectResponse
+    {
+        $request->session()->forget('token');
+        return redirect('/');
+    }
 }

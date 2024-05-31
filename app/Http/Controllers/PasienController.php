@@ -111,4 +111,10 @@ class PasienController extends Controller
                 'success' => 'Successful Registration'
             ]);
     }
+
+    function doLogout(Request $request): Response | RedirectResponse
+    {
+        $request->session()->forget('token');
+        return redirect('/');
+    }
 }

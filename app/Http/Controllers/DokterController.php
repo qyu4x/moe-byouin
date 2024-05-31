@@ -90,6 +90,11 @@ class DokterController extends Controller
                 'title' => 'Dokter Register',
                 'success' => 'Successful Registration'
             ]);
+    }
 
+    function doLogout(Request $request): Response | RedirectResponse
+    {
+        $request->session()->forget('token');
+        return redirect('/');
     }
 }
